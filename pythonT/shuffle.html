@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>神経衰弱</title>
+
+    <style>
+        #gameboard > input {
+            font-size:  24px;
+            width:      50px;
+            height:     50px;
+        }
+    </style>
+<script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-59914580-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+</head>
+
+<body>
+    <h1>神経衰弱</h1>
+    <p>Score: <span id="score"></span></p>
+    <div id="gameboard"></div>
+    <p><input type="button" value="はじめる!" id="timerStart"></p>
+    <div id="sizeSelect">
+        <input type="radio" name="radio_size" value="4">4
+        <input type="radio" name="radio_size" value="16">16
+    </div>
+
+
+    <script>
+    (function() {
+        var cards = [];
+        var CARD_MAX = 4;
+        var currentNum;
+        var openedCard;
+        var correctNum = 0 ;
+        var enableFlip = true;
+        var timerId;
+        var score = 0;
+
+        //ゲーム初期化
+        function gameInit(n) {
+            var num;
+            var idx;
+            var i;
+            var board = document.getElementById('gameboard');
+
+            //ボードのサイズを変える
+            if (n >= 4)
+            {
+                CARD_MAX = n;
+            }
+
+            for (i=0; i<CARD_MAX; i++) {
+                num = Math.floor(i/2);
+                //既に埋まっているカードなら繰り返す。
+                do {
+                    idx =Math.floor(Math.random() * CARD_MAX);
+                } while(typeof cards[idx] !== 'undefined');
+                cards[idx] = createCard(num);
+            }
+            //カードの生成
+
+            for (i=0; i<CARD_MAX; i++) {
+                board.appendChild(cards[i]);
+                if (i % Math.sqrt(CARD_MAX) == Math.sqrt(CARD_MAX)-1) {
+                    board.appendChild(document.createElement('br'));
+                }
+            }
+        }
+        //カード作成
+        function createCard(num) {
+            var card = document.createElement('input');
+            card.type='button';
+            card.value ='?';
+            card.dataset.num = num;
+            card.onclick = function() {
+                flip(this);
+            }
+            return card;
+        }
+        //カードをめくる
+        function flip(card) {
+            //判定中だから
+            if (!enableFlip) {
+                return;
+            }
+            if (card.value != '?') {
+                return;
+            }
+            card.value = card.dataset.num;
+            console.log(card.value);
+
+            if (typeof currentNum === 'undefined') {
+                //一枚目
+                openedCard = card;
+                currentNum = card.dataset.num;
+            } else {
+                judge(card);
+                currentNum = undefined;
+            }
+        }
+        //判定処理
+        function judge(card) {
+            if (currentNum == card.dataset.num) {
+                //一致
+                correctNum++;
+                if (correctNum == CARD_MAX / 2) {
+                    clearTimeout(timerId);
+                    alert("your score is..."+document.getElementById('score').innerHTML);
+                }
+            } else {
+                //不一致
+                enableFlip = false;
+                setTimeout(function() {
+                    openedCard.value = "?";
+                    card.value = "?";
+                    enableFlip = true;
+                },1000);
+
+            }
+        }
+
+        function runTimer() {
+            document.getElementById('score').innerHTML = score++;
+            timerId = setTimeout(function () {
+                runTimer();
+            }, 10);
+        }
+
+        gameInit(16);
+        runTimer();
+
+    })();
+    </script>
+</body>
+</html>

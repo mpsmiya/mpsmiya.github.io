@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional/EN">
+<html>
+  <head>
+    <title>東京メトロオープンデータ活用コンテストへの応募作品</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>
+        div {
+            text-align: center;
+        }
+        ul {
+            text-align: center;
+        }
+        .pop_btn > li {
+          display: inline-block;
+          height: 50px;
+          margin: 0;
+          position: relative;
+          width: 200px;
+        }
+        .pop_btn > li a {
+          background-color: #0B9;
+          border: 5px solid #0B9;
+          border-radius: 500px;
+          color: #FFF;
+          display: block;
+          font-family: "Arial Black";
+          font-size: 17px;
+          height: 40px;
+          line-height: 40px;
+          position: absolute;
+          text-align: center;
+          text-decoration: none;
+          top: 0px;
+          -webkit-transition: all ease 0.2s;
+          -moz-transition: all ease 0.2s;
+          -o-transition: all ease 0.2s;
+          -ms-transition: all ease 0.2s;
+          transition: all ease 0.2s;
+          width: 200px;
+        }
+        .pop_btn > li a:hover {
+          background-color: #FFF;
+          color: #0B9;
+          height: 40px;
+          line-height: 40px;
+          top: 0;
+          width: 200px;
+        }
+
+        /* 東西線 */
+        .pop_btn > li.TOZAI a:hover {
+          color: #00a7db;
+          background-color: #FFF;
+        }
+        .pop_btn > li.TOZAI a {
+          background-color: #00a7db;
+          border: 5px solid #00a7db;
+        }
+        /* 丸ノ内線 */
+        .pop_btn > li.MARUNOUCHI a:hover {
+          color: #e60012;
+          background-color: #FFF;
+        }
+        .pop_btn > li.MARUNOUCHI a {
+          background-color: #e60012;
+          border: 5px solid #e60012;
+        }
+        /* 南北線 */
+        .pop_btn > li.NAMBOKU a:hover {
+          color: #00ada9;
+          background-color: #FFF;
+        }
+        .pop_btn > li.NAMBOKU a {
+          background-color: #00ada9;
+          border: 5px solid #00ada9;
+        }
+        /* 日比谷 */
+        .pop_btn > li.HIBIYA a:hover {
+          color: #9caeb7;
+          background-color: #FFF;
+        }
+        .pop_btn > li.HIBIYA a {
+          background-color: #9caeb7;
+          border: 5px solid #9caeb7;
+        }
+        /* 副都心線 */
+        .pop_btn > li.FUKUTOSHIN a:hover {
+          color: #bb641d;
+          background-color: #FFF;
+        }
+        .pop_btn > li.FUKUTOSHIN a {
+          background-color: #bb641d;
+          border: 5px solid #bb641d;
+        }
+        /* 半蔵門線 */
+        .pop_btn > li.HANZOUMON a:hover {
+          color: #9b7cb6;
+          background-color: #FFF;
+        }
+        .pop_btn > li.HANZOUMON a {
+          background-color: #9b7cb6;
+          border: 5px solid #9b7cb6;
+        }
+        /* 銀座線 */
+        .pop_btn > li.GINZA a:hover {
+          color: #f39700;
+          background-color: #FFF;
+        }
+        .pop_btn > li.GINZA a {
+          background-color: #f39700;
+          border: 5px solid #f39700;
+        }
+        /* 有楽町線 */
+        .pop_btn > li.YURAKUCHO a:hover {
+          color: #d7c447;
+          background-color: #FFF;
+        }
+        .pop_btn > li.YURAKUCHO a {
+          background-color: #d7c447;
+          border: 5px solid #d7c447;
+        }
+        /* 千代田線 */
+        .pop_btn > li.CHIYODA a:hover {
+          color: #009944;
+          background-color: #FFF;
+        }
+        .pop_btn > li.CHIYODA a {
+          background-color: #009944;
+          border: 5px solid #009944;
+        }
+    </style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56745764-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+  <body>
+            <div id="body">
+                <div>東京メトロオープンデータコンテストに</div>
+                <div>JSONデータをPythonで加工して応募してみた</div><br>
+                <ul class="pop_btn">
+		    <li class="CHIYODA"><a href="StationMapYOLP.cgi" target="_blank">駅を地図に</a></li><br>
+		    <li class="CHIYODA"><a href="TrainInfomation.cgi" target="_blank">運行状況</a></li><br>
+                    <li class="CHIYODA"><a href="RailWay.cgi" target="_blank">路線・駅情報</a></li><br>
+                </ul>
+                <div><a href="webmanual.pdf" target="_blank">サイトマニュアル</a></div>
+                <div><div>東京メトロの事情により、予告なく本webシステムの提供をとりやめることがあります。</div><br>
+            </div>
+  </body>
+</html>
